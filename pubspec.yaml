@@ -43,6 +43,12 @@ dependencies:
   flutter_barcode_scanner: ^2.0.0
   get: ^4.6.6
   device_preview: ^1.2.0
+  table_calendar: ^3.1.2
+  image_picker: ^1.1.2
+  pdf: ^3.11.1
+  open_file: ^3.5.3
+  screenshot: ^3.0.0
+  share_plus: ^10.0.2
 
 dev_dependencies:
   flutter_test:
@@ -68,30 +74,39 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets\images\image 11.png
-    - assets\images\image 36.png
-    - assets\images\image 12.png
-    - assets\images\image 16.png
-    - assets\images\image 28.png
-    - assets\images\image 27.png
-    - assets\images\image 26.png
-    - assets\images\image 39.png
-    - assets\images\image 36.png
-    - assets\images\image 37.png
-    - assets\images\image 38.png
-    - assets\images\image 14.png
-    - assets\images\image 13.png
-    - assets\images\image 33.png
-    - assets\images\Vector.png
-    - assets\images\gold.jpg
-    - assets\images\bronze.jpg
-    - assets\images\podium.png
-    - assets\images\Silver medal.jpg
-    - assets\images\Rewards_icon-removebg-preview.png
-    - assets\images\icon-park-twotone_degree-hat.png
-    - assets\images\background_leaves.png
-    - assets\images\background_flowers.png
-    - assets\images\WhatsApp Image 2024-09-11 at 14.17.16_5ce8e650.jpg
+    - assets/images/image 11.png
+    - assets/images/image 12.png
+    - assets/images/image 36.png
+    - assets/images/image 16.png
+    - assets/images/image 28.png
+    - assets/images/image 27.png
+    - assets/images/image 26.png
+    - assets/images/image 39.png
+    - assets/images/image 36.png
+    - assets/images/image 37.png
+    - assets/images/image 38.png
+    - assets/images/image 14.png
+    - assets/images/image 13.png
+    - assets/images/image 33.png
+    - assets/images/Vector.png
+    - assets/images/gold.jpg
+    - assets/images/bronze.jpg
+    - assets/images/podium.png
+    - assets/images/Silver medal.jpg
+    - assets/images/Rewards_icon-removebg-preview.png
+    - assets/images/icon-park-twotone_degree-hat.png
+    - assets/images/background_leaves.png
+    - assets/images/background_flowers.png
+    - assets/images/student.jpg
+    - assets/images/mentor.jpg
+    - assets/images/WhatsApp Image 2024-09-11 at 14.17.16_5ce8e650.jpg
+    - assets/images/WhatsApp Image 2024-09-11 at 14.17.16_5ce8e650.jpg
+    - assets/images/background.jpeg
+    - assets/images/bottom.png
+    - assets/images/pdf.png
+    - assets/images/heading.png
+
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

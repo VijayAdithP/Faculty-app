@@ -2,6 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:intl/intl.dart';
+import 'package:rewardspage/front_page.dart';
 import 'package:rewardspage/rewards%20pages/Details/Star%20Transfer/trasnfer_page.dart';
 import 'package:rewardspage/rewards%20pages/Details/details_page.dart';
 import 'package:rewardspage/rewards%20pages/Statement/statement_page.dart';
@@ -101,15 +102,29 @@ class _Rewards_Main_PageState extends State<Rewards_Main_Page> {
                           child: const Icon(Icons.person),
                         ),
                         const Padding(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 20.0,
-                          ),
+                          padding: EdgeInsets.symmetric(horizontal: 20.0),
                           child: Text(
                             "VIJAY ADITH P",
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 20,
                             ),
+                          ),
+                        ),
+                        const Spacer(), // This takes up the remaining space, pushing the home icon to the right
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const BackgroundImage()),
+                            );
+                          },
+                          child: const Icon(
+                            Icons.home,
+                            size: 40,
+                            color: Colors.white,
                           ),
                         ),
                       ],
