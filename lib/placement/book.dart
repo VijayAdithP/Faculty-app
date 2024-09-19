@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rewardspage/placement/actionplan.dart'; // Import Google Fonts package
 
-void main() {
-  runApp(MyApp());
-}
+// void main() {
+//   runApp(MyApp());
+// }
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Book(), // Updated class name
-    );
-  }
-}
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Book(), // Updated class name
+//     );
+//   }
+// }
 
 class Book extends StatefulWidget {
   @override
@@ -278,8 +278,8 @@ class _BookState extends State<Book> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>
-                                ActionPlan()), // Correct usage
+                          builder: (context) => FullScreenImageWithText(),
+                        ),
                       );
                     },
                   ),

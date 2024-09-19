@@ -4,18 +4,18 @@ import 'package:rewardspage/front_page.dart';
 import 'package:rewardspage/placement/book.dart';
 import 'package:table_calendar/table_calendar.dart'; // Add TableCalendar package
 
-void main() {
-  runApp(ActionPlan());
-}
+// void main() {
+//   runApp(ActionPlan());
+// }
 
-class ActionPlan extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: FullScreenImageWithText(),
-    );
-  }
-}
+// class ActionPlan extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: FullScreenImageWithText(),
+//     );
+//   }
+// }
 
 class FullScreenImageWithText extends StatefulWidget {
   @override

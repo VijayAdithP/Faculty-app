@@ -8,31 +8,31 @@ import 'package:path_provider/path_provider.dart';
 import 'package:open_file/open_file.dart'; // Ensure this import is present
 import 'pdf_page.dart' as pdf_page; // Prefix the PdfPage import
 
-void main() {
-  runApp(const MyApp());
-}
+// void main() {
+//   runApp(const MyApp());
+// }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        textTheme: GoogleFonts.aBeeZeeTextTheme(
-          Theme.of(context)
-              .textTheme
-              .apply(bodyColor: Colors.black, displayColor: Colors.black),
-        ),
-      ),
-      home: Scaffold(
-        body: Result(),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       theme: ThemeData(
+//         primarySwatch: Colors.blue,
+//         textTheme: GoogleFonts.aBeeZeeTextTheme(
+//           Theme.of(context)
+//               .textTheme
+//               .apply(bodyColor: Colors.black, displayColor: Colors.black),
+//         ),
+//       ),
+//       home: Scaffold(
+//         body: Result(),
+//       ),
+//     );
+//   }
+// }
 
 class Result extends StatefulWidget {
   const Result({super.key});
@@ -98,120 +98,122 @@ class _ResultState extends State<Result> {
     final double normalizedValue =
         (currentValue - minValue) / (maxValue - minValue);
 
-    return Screenshot(
-      controller: _screenshotController,
-      child: Stack(
-        children: [
-          Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/images/background.jpeg"),
-                fit: BoxFit.cover,
+    return Scaffold(
+      body: Screenshot(
+        controller: _screenshotController,
+        child: Stack(
+          children: [
+            Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/images/background.jpeg"),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-          ),
-          Positioned(
-            top: MediaQuery.of(context).size.height * 0.35,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            child: Container(
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+            Positioned(
+              top: MediaQuery.of(context).size.height * 0.35,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              child: Container(
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const SizedBox(height: 20),
+                      _buildTitleText("You are Excellent,"),
+                      const SizedBox(height: 5),
+                      _buildTitleText("Aswath M", isBold: true, fontSize: 25),
+                      const SizedBox(height: 10),
+                      Expanded(
+                        child: _buildTable(context),
+                      ),
+                      const SizedBox(height: 10),
+                    ],
+                  ),
+                ),
               ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+            ),
+            Positioned(
+              top: 40,
+              left: 20,
+              child: _buildCupertinoBackButton(),
+            ),
+            Positioned(
+              top: 40,
+              right: 20,
+              child: _buildImageButton(Icons.share, _shareScreenshot),
+            ),
+            Positioned(
+              top: MediaQuery.of(context).size.height * 0.10,
+              left: MediaQuery.of(context).size.width * 0.5 - 150,
+              child: _buildCenteredCircle(context, normalizedValue),
+            ),
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: Container(
+                color: Colors.transparent,
+                child: Stack(
                   children: [
-                    const SizedBox(height: 20),
-                    _buildTitleText("You are Excellent,"),
-                    const SizedBox(height: 5),
-                    _buildTitleText("Aswath M", isBold: true, fontSize: 25),
-                    const SizedBox(height: 10),
-                    Expanded(
-                      child: _buildTable(context),
+                    Opacity(
+                      opacity: 0.7,
+                      child: Image.asset(
+                        "assets/images/bottom.png",
+                        width: MediaQuery.of(context).size.width,
+                        height: 150,
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                    const SizedBox(height: 10),
+                    Positioned(
+                      bottom: 70,
+                      left: MediaQuery.of(context).size.width * 0.5 - 150,
+                      child: SizedBox(
+                        width: 300,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor:
+                                const Color.fromARGB(221, 0, 108, 196),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            padding: const EdgeInsets.symmetric(vertical: 16),
+                          ),
+                          onPressed: _onDownloadPdfPressed,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Text(
+                                "Download as PDF",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                ),
+                              ),
+                              const SizedBox(width: 9),
+                              Image.asset(
+                                "assets/images/pdf.png",
+                                width: 24,
+                                height: 24,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
             ),
-          ),
-          Positioned(
-            top: 40,
-            left: 20,
-            child: _buildCupertinoBackButton(),
-          ),
-          Positioned(
-            top: 40,
-            right: 20,
-            child: _buildImageButton(Icons.share, _shareScreenshot),
-          ),
-          Positioned(
-            top: MediaQuery.of(context).size.height * 0.10,
-            left: MediaQuery.of(context).size.width * 0.5 - 150,
-            child: _buildCenteredCircle(context, normalizedValue),
-          ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: Container(
-              color: Colors.transparent,
-              child: Stack(
-                children: [
-                  Opacity(
-                    opacity: 0.7,
-                    child: Image.asset(
-                      "assets/images/bottom.png",
-                      width: MediaQuery.of(context).size.width,
-                      height: 150,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 70,
-                    left: MediaQuery.of(context).size.width * 0.5 - 150,
-                    child: SizedBox(
-                      width: 300,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              const Color.fromARGB(221, 0, 108, 196),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          padding: const EdgeInsets.symmetric(vertical: 16),
-                        ),
-                        onPressed: _onDownloadPdfPressed,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Text(
-                              "Download as PDF",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                              ),
-                            ),
-                            const SizedBox(width: 9),
-                            Image.asset(
-                              "assets/images/pdf.png",
-                              width: 24,
-                              height: 24,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

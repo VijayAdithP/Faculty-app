@@ -6,24 +6,24 @@ import 'dart:io';
 import 'package:rewardspage/front_page.dart';
 import 'package:rewardspage/profile/result/result.dart';
 
-void main() {
-  runApp(MyProfileApp());
-}
+// void main() {
+//   runApp(MyProfileApp());
+// }
 
-class MyProfileApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        textTheme: GoogleFonts.aBeeZeeTextTheme(
-          Theme.of(context).textTheme,
-        ),
-      ),
-      home: MyProfileScreen(),
-    );
-  }
-}
+// class MyProfileApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       theme: ThemeData(
+//         textTheme: GoogleFonts.aBeeZeeTextTheme(
+//           Theme.of(context).textTheme,
+//         ),
+//       ),
+//       home: MyProfileScreen(),
+//     );
+//   }
+// }
 
 class MyProfileScreen extends StatefulWidget {
   @override
